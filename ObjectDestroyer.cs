@@ -15,12 +15,14 @@ public class ObjectDestroyer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Destroys the object if it goes beyond the player's view
         if (transform.position.z > topBound)
         {
             Destroy(gameObject);
         }        
         else if (transform.position.z < bottomBound)
         {
+            Debug.Log("Game 0ver!");
             Destroy(gameObject);
         }
     }
