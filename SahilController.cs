@@ -14,6 +14,7 @@ public class SahilController : MonoBehaviour
     private float zOffset = 13.5f;
     // The projectile that the player will throw
     public GameObject projectilePrefab;
+    private Vector3 projectileOffset = new Vector3 (0.0f, 0.0f, 2.5f);
     
         // Start is called before the first frame update
     void Start()
@@ -52,7 +53,9 @@ public class SahilController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             // Launches a projectile from the player
-            Instantiate(projectilePrefab, transform.position, projectilePrefab.transform.rotation);
+            Instantiate(projectilePrefab, (transform.position + projectileOffset), projectilePrefab.transform.rotation);
         }
     }
+
+    
 }

@@ -6,6 +6,8 @@ public class ObjectDestroyer : MonoBehaviour
 {
     private float topBound = 40.0f;
     private float bottomBound = -15.0f;
+    private float leftBound = -25.0f;
+    private float rightBound = 25.0f;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,7 +24,16 @@ public class ObjectDestroyer : MonoBehaviour
         }        
         else if (transform.position.z < bottomBound)
         {
-            Debug.Log("Game 0ver!");
+            //Debug.Log("Game 0ver!");
+            Destroy(gameObject);
+        }
+
+        if (transform.position.x < leftBound)
+        {
+            Destroy(gameObject);
+        }
+        else if (transform.position.x > rightBound)
+        {
             Destroy(gameObject);
         }
     }
