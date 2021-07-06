@@ -8,10 +8,13 @@ public class ObjectDestroyer : MonoBehaviour
     private float bottomBound = -15.0f;
     private float leftBound = -25.0f;
     private float rightBound = 25.0f;
+
+    private GameManager gameManager;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();   
     }
 
     // Update is called once per frame
@@ -24,6 +27,7 @@ public class ObjectDestroyer : MonoBehaviour
         }        
         else if (transform.position.z < bottomBound)
         {
+            gameManager.changeLives(-1);
             //Debug.Log("Game 0ver!");
             Destroy(gameObject);
         }

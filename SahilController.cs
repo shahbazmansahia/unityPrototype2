@@ -15,11 +15,12 @@ public class SahilController : MonoBehaviour
     // The projectile that the player will throw
     public GameObject projectilePrefab;
     private Vector3 projectileOffset = new Vector3 (0.0f, 0.0f, 2.5f);
-    
+
+    private GameManager gameManager;
         // Start is called before the first frame update
     void Start()
     {
-        
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     // Update is called once per frame
@@ -55,6 +56,11 @@ public class SahilController : MonoBehaviour
             // Launches a projectile from the player
             Instantiate(projectilePrefab, (transform.position + projectileOffset), projectilePrefab.transform.rotation);
         }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        gameManager.changeLives(-1);
     }
 
     
