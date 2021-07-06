@@ -19,10 +19,10 @@ public class DetectCollisions : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Destroy(gameObject);
-
+        
         if (other.CompareTag("Animal")){
-            gameManager.addScore(1);
+            other.GetComponent<AnimalHunger>().FeedAnimal(1);
+            Destroy(gameObject);
         }
     }
 }
